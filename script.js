@@ -44,6 +44,7 @@ function actualitzarInterficie(){
                 let elementAMoure= barca.splice(index, 1);
                 costat2.push(...elementAMoure);
                 missatgeDisplay.textContent = `Has clicat: ${element} que està a la posició ${index}.`;
+                hasganado()
             }
             actualitzarInterficie();
         });
@@ -77,17 +78,25 @@ function creuar() {
                             if (!costat2.includes("madre") || (costat2.includes("madre") && (costat2.includes("padre") || (costat2.includes("madre") && (!costat2.includes("padre")) && (!costat2.includes("Hijo1")) && (!costat2.includes("Hijo2")) || costat2.length === 1)))) {
                                 moure();
                             } else {
-                                missatgeDisplay.textContent = ""
+                                missatgeDisplay.textContent = "La mare està amb un Fill"
                             }
                         } else {
-                            missatgeDisplay.textContent = ""
+                            missatgeDisplay.textContent = "La Mare està amb un Fill"
                         }
                     } else {
-                        missatgeDisplay.textContent = ""
+                        missatgeDisplay.textContent = "El pare està amb una Filla"
                     }
+                } else {
+                    missatgeDisplay.textContent = "El pare està amb una Filla"
                 }
+            } else {
+                missatgeDisplay.textContent = "El Lladre no està amb el Policia"
             }
+        } else {
+            missatgeDisplay.textContent = "El Lladre no està amb el Policia"
         }
+    } else {
+        missatgeDisplay.textContent = "Falta el Policia, Mare o Pare"
     }
 }
 
@@ -104,9 +113,7 @@ function moure(){
 actualitzarInterficie();
 
 function hasganado(){
-    if (costat2.includes("policia") && costat2.includes("ladron") && costat2.includes("padre") && costat2.includes("madre") && costat2.includes("hijo1") && costat2.includes("Hijo2") && costat2.includes("Hija1") && costat2.includes("Hija2")       ) {
-        missatgeDisplay.textContent = "Has ganado"
+    if (costat2.length === 8){
+        alert("Has ganado")
     }
 }
-
-hasganado()
