@@ -27,14 +27,17 @@ body {
     background-color: #d2b48c; /* Color terra */
     padding: 10px;
     border-radius: 10px;
+    background-image: url("imagenes/riba.png");
+    border: black solid 2px;
 }
 
 #zona-barca {
     width: 30%;
-    min-height: 150px;
-    background-color: #87ceeb; /* Color aigua */
+    min-height: 130px;
+    background-color: #87cdea; /* Color aigua */
     border-radius: 10px;
     padding: 10px;
+    border: black solid 2px;
 }
 
 button {
@@ -42,7 +45,7 @@ button {
     padding: 8px 12px;
     cursor: pointer;
     background-color: #fff;
-    border: 2px solid #333;
+    border: 2px solid #020002;
     border-radius: 5px;
 }
 

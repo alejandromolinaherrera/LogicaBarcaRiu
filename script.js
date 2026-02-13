@@ -8,6 +8,7 @@ const contenidorBarca = document.getElementById("barca-display");
 const missatgeDisplay = document.getElementById("missatge");
 let costat="esquerra"
 
+//Aquesta funció és la responsable per el moviment de la barca
 function actualitzarInterficie(){
     contenidorC1.innerHTML = "";
     contenidorC2.innerHTML = "";
@@ -15,15 +16,15 @@ function actualitzarInterficie(){
 
     costat1.forEach(element => {
         const boto = document.createElement("button");
-        boto.innerHTML = "<img src=/imagenes/"+element+".png width='100px' height='100px'>"
-
+        boto.innerHTML = "<img src=/imagenes/"+element+".png width='95px' height='95px'>"
         boto.addEventListener("click", () => {
             if (barca.length<2){
                 let index = costat1.indexOf(element);
                 let elementAMoure=costat1.splice(index, 1);
                 barca.push(...elementAMoure);
-                missatgeDisplay.textContent = `Has clicat: ${element} que està a la posició ${index}. L'has mogut a la barca.`;
                 actualitzarInterficie();
+            } else {
+                missatgeDisplay.textContent = "Ja hi ha 2 personatges a la barca";
             }
         });
         contenidorC1.appendChild(boto);
@@ -31,19 +32,17 @@ function actualitzarInterficie(){
 
     barca.forEach(element => {
         const boto = document.createElement("button");
-        boto.innerHTML = "<img src=/imagenes/"+element+".png width='100px' height='100px'>"
+        boto.innerHTML = "<img src=/imagenes/"+element+".png width='95px' height='95px'>"
 
         boto.addEventListener("click", () => {
             if (costat === "esquerra"){
                 let index = barca.indexOf(element);
                 let elementAMoure=barca.splice(index, 1);
                 costat1.push(...elementAMoure);
-                missatgeDisplay.textContent = `Has clicat: ${element} que està a la posició ${index}.`;
             }else{
                 let index = barca.indexOf(element);
                 let elementAMoure= barca.splice(index, 1);
                 costat2.push(...elementAMoure);
-                missatgeDisplay.textContent = `Has clicat: ${element} que està a la posició ${index}.`;
                 hasganado()
             }
             actualitzarInterficie();
@@ -53,14 +52,13 @@ function actualitzarInterficie(){
 
     costat2.forEach(element => {
         const boto = document.createElement("button");
-        boto.innerHTML = "<img src=/imagenes/"+element+".png width='100px' height='100px'>"
+        boto.innerHTML = "<img src=/imagenes/"+element+".png width='95px' height='95px'>"
 
         boto.addEventListener("click", () => {
             if (barca.length<2){
                 let index = costat2.indexOf(element);
                 let elementAMoure=costat2.splice(index, 1);
                 barca.push(...elementAMoure);
-                missatgeDisplay.textContent = `Has clicat: ${element} que està a la posició ${index}.`;
                 actualitzarInterficie();
             }
         });
