@@ -6,7 +6,6 @@ const contenidorC1 = document.getElementById("personatges-c1");
 const contenidorC2 = document.getElementById("personatges-c2");
 const contenidorBarca = document.getElementById("barca-display");
 const missatgeDisplay = document.getElementById("missatge");
-let costat="esquerra"
 
 //Aquesta funció és la responsable per el moviment de la barca
 function actualitzarInterficie(){
